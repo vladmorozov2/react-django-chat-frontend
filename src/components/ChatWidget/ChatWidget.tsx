@@ -3,7 +3,7 @@ import useWebSocket from 'react-use-websocket';
 import './ChatWidget.css'; // Make sure you have the CSS file for styling
 
 const WebSocketComponent = () => {
-  const socketUrl = 'ws://localhost:8000/ws/chat/';
+  const socketUrl = 'ws://localhost:8000/ws/chat/1/';
   const [messages, setMessages] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false); // Track if chat is open or closed
   const [input, setInput] = useState(''); // Store the user input message
@@ -21,15 +21,14 @@ const WebSocketComponent = () => {
     if (input.trim()) {
       // Create a JSON object
       const messageObj = { message: input };
-  
+
       // Send the message as a JSON string
       sendMessage(JSON.stringify(messageObj));
-  
+
       setMessages((prevMessages) => [...prevMessages, input]); // Add the message to the local list of messages
       setInput(''); // Clear the input after sending
     }
   };
-  
 
   // Toggle the chat window visibility
   const toggleChat = () => {
