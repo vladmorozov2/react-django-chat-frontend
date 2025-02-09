@@ -1,85 +1,136 @@
-/* WebSocketComponent.css */
-.container {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+/* ChatWidget.css */
 
-button {
-  display: block;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-h1,
-h2 {
-  text-align: center;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  background-color: #fff;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
+/* Global chat icon styles */
 .chat-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background-color: #007bff;
   color: white;
-  font-size: 24px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
   border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 24px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
 .chat-icon:hover {
   background-color: #0056b3;
 }
 
+/* Chat box container */
 .chat-box {
   position: fixed;
-  bottom: 80px;
+  bottom: 70px;
   right: 20px;
   width: 300px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-height: 400px;
+  background-color: #ffffff;
   border-radius: 8px;
-  z-index: 1000;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #007bff;
 }
 
-.ready-state {
-  background-color: #f7f7f7;
+/* Header section inside the chat box */
+.chat-header {
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
+  border-bottom: 2px solid #0056b3;
+}
+
+.chat-header h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.close-chat {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close-chat:hover {
+  color: #ff4c4c;
+}
+
+/* Input container styles */
+.input-container {
+  display: flex;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-top: 2px solid #f0f0f0;
+}
+
+.input-field {
+  flex-grow: 1;
+  padding: 8px;
   border-radius: 4px;
-  margin-top: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.send-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+/* Messages container */
+.message-container {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.messages-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.message-item {
+  padding: 8px;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+/* Connection status section */
+.ready-state {
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-top: 2px solid #f0f0f0;
+  text-align: center;
+}
+
+.ready-state h2 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.ready-state p {
+  font-size: 12px;
+  color: #555;
 }

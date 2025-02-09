@@ -44,7 +44,12 @@ const WebSocketComponent = () => {
 
       {isOpen && (
         <div className="chat-box">
-          <h1>WebSocket Chat</h1>
+          <div className="chat-header">
+            <h1>WebSocket Chat</h1>
+            <button className="close-chat" onClick={toggleChat}>
+              ×
+            </button>
+          </div>
 
           {/* Message input form */}
           <div className="input-container">
@@ -61,23 +66,18 @@ const WebSocketComponent = () => {
           </div>
 
           {/* Messages display */}
-          <div>
-            <h2>Messages</h2>
+          <div className="message-container">
             {messages.length === 0 ? (
               <p>No messages received yet.</p>
             ) : (
-              <ul>
+              <ul className="messages-list">
                 {messages.map((message, index) => (
-                  <li key={index}>{message}</li>
+                  <li key={index} className="message-item">
+                    {message}
+                  </li>
                 ))}
               </ul>
             )}
-          </div>
-
-          {/* Ready state display */}
-          <div>
-            <h2>Ready State</h2>
-            <p>{readyState}</p>
           </div>
         </div>
       )}
